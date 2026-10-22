@@ -1,0 +1,51 @@
+.composition-layout { grid-template-columns: minmax(0,1fr) 340px; }
+.composition-workspace { padding: 36px 38px 28px; min-width: 0; }
+.composition-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.composition-heading h1 { font-size: clamp(24px,2.7vw,38px); letter-spacing: -1.2px; }
+.composition-heading p { font-size: 12px; color: var(--muted); line-height: 1.7; margin: 14px 0 25px; }
+.composition-edition { font: 8px/1.9 var(--mono); color: var(--muted); text-align: right; flex-shrink: 0; }
+.composition-layout-presets { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 9px; margin-bottom: 22px; }
+.composition-layout-presets button { min-width: 0; border: 1px solid #c9d1bf; background: #f7f5ef; border-radius: 3px; padding: 10px; text-align: left; }
+.composition-layout-presets button[aria-pressed=true] { background: #dce5d1; border-color: #658154; }
+.composition-layout-presets svg { display: block; width: 100%; height: 63px; margin-bottom: 12px; }
+.composition-layout-presets strong { display: block; font-size: 11px; margin-bottom: 6px; font-weight: 600; }
+.composition-layout-presets small { display: block; font-size: 9px; color: #4d5c43; line-height: 1.6; }
+@media (max-width:1100px) { .composition-layout-presets { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+.composition-assets { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 0 20px; }
+.composition-assets > div { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; background: #f7f5ef; padding: 15px; border: 1px solid var(--line); border-radius: 3px; min-width: 0; }
+.composition-assets .eyebrow { display: block; width: 100%; margin-bottom: 4px; color: #57664b; }
+.composition-assets .button { padding: 8px 11px; font-size: 11px; cursor: pointer; }
+.composition-assets .button:focus-within { outline: 2px solid #c7552d; outline-offset: 3px; }
+.composition-assets small { width: 100%; font-size: 9px; color: var(--muted); line-height: 1.6; overflow-wrap: anywhere; }
+.composition-text-button { border: 0; padding: 5px 0; background: transparent; font-size: 10px; text-decoration: underline; text-underline-offset: 3px; color: #405536; }
+.composition-stage { padding: 14px 14px 10px; background: #dce1d3; border: 1px solid #bdc6b1; }
+.composition-stage canvas { display: block; width: 100%; height: auto; aspect-ratio: 16/9; box-shadow: 0 2px 6px #1e351d22; background: #5c7b48; }
+.composition-caption { display: flex; justify-content: space-between; gap: 10px; padding-top: 10px; font: 7px/1.6 var(--mono); letter-spacing: .3px; color: #506047; }
+.composition-quick { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; gap: 12px; margin: 19px 0 25px; }
+.composition-quick .button { font-size: 10px; padding: 9px 12px; }
+.composition-mirror[aria-pressed=true] { background: #d7e0cb; border-color: #738c61; }
+.composition-attribution { display: flex; gap: 0; border: 1px solid #b7c1aa; border-radius: 3px; overflow: hidden; }
+.composition-attribution button { background: transparent; border: 0; font-size: 10px; padding: 10px 12px; }
+.composition-attribution button[aria-pressed=true] { background: #d7e0cb; color: #263e21; }
+.composition-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding-top: 22px; border-top: 1px solid var(--line); }
+.composition-copy > label:first-child { grid-column: 1 / -1; }
+.composition-copy > div { display: flex; flex-direction: column; gap: 15px; }
+.composition-copy label { display: flex; flex-direction: column; gap: 9px; font: 8px var(--mono); color: #53634a; letter-spacing: .6px; min-width: 0; }
+.composition-copy input, .composition-copy textarea { width: 100%; background: #f9f7f1; border: 1px solid #bcc6b0; border-radius: 3px; padding: 12px; color: #283322; font: 13px/1.6 Arial,sans-serif; letter-spacing: 0; }
+.composition-copy textarea { resize: vertical; min-height: 85px; }
+.composition-copy small { font: 9px/1.7 Arial,sans-serif; letter-spacing: 0; color: var(--muted); }
+.composition-palettes { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 8px; margin-top: 25px; }
+.composition-palettes button { padding: 10px 4px; min-width: 0; border: 1px solid #75836766; border-radius: 3px; }
+.composition-palettes button[aria-pressed=true] { outline: 2px solid #c55132; outline-offset: 2px; }
+.composition-palettes span { display: block; font-size: 24px; line-height: 1; }
+.composition-palettes small { display: block; font-size: 8px; margin-top: 9px; }
+.composition-palettes small { background: #f6f5ef; color: #394833; margin: 10px -4px -10px; padding: 9px 2px; }
+.composition-status { font: 10px/1.8 var(--mono); color: #46623d; margin: 22px 0 0; min-height: 30px; }
+.composition-warning { font-size: 11px; line-height: 1.8; color: #87502d; }
+.composition-details { margin-top: 15px; font-size: 11px; }
+.composition-details a { color: inherit; }
+.composition-sidebar { border-left: 1px solid var(--line); background: #f6f5ef; }
+.composition-sidebar-notes { padding: 20px 25px 28px; font-size: 11px; color: #5f6b55; line-height: 1.9; }
+@media (hover:hover) { .composition-attribution button:hover { background: #e0e5d7; } .composition-assets label.button:hover { background: #e5eadc; } }
+@media (max-width:1100px) { .composition-layout { grid-template-columns: minmax(0,1fr) 300px; } .composition-workspace { padding: 28px 24px; } .composition-edition { display: none; } .composition-assets { grid-template-columns: 1fr; } .composition-palettes { grid-template-columns: repeat(3,minmax(0,1fr)); } }
+@media (max-width:780px) { .composition-layout { grid-template-columns: 1fr; } .composition-workspace { padding: 27px 18px; } .composition-sidebar { border-left: 0; border-top: 1px solid var(--line); } .composition-sidebar .dial-container,.composition-sidebar-notes { max-width: 500px; margin: auto; } .composition-stage { padding: 8px; } .composition-caption { font-size: 5px; gap: 8px; } .composition-copy { grid-template-columns: 1fr; } .composition-lab .topbar .brand { min-width: 180px; white-space: nowrap; flex: 1; } .composition-export { order: 1; margin-left: auto; } .composition-lab .lcd-nav { order: 2; width: 100%; justify-content: center; gap: 20px; } .composition-palettes { grid-template-columns: repeat(3,minmax(0,1fr)); } }

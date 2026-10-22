@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.pi/
+.firecrawl/
+artifacts/
+.DS_Store

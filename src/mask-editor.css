@@ -1,0 +1,85 @@
+.mask-editor {
+  box-sizing: border-box;
+  width: min(960px, calc(100vw - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 24px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  color: #272a23;
+  background: #f6f5ef;
+  border: 1px solid #a5ae98;
+  border-radius: 8px;
+  box-shadow: 0 20px 80px #18271d40;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.mask-editor::backdrop { background: #18271db3; }
+.mask-editor .mask-editor__header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.mask-editor h2 { margin: 6px 0 0; font-size: 26px; font-weight: 500; letter-spacing: -.7px; }
+.mask-editor__eyebrow { font: 9px 'SFMono-Regular', Consolas, monospace; letter-spacing: 1.2px; color: #62695b; }
+.mask-editor__note, .mask-editor__hint { color: #59644f; font-size: 12px; line-height: 1.6; }
+.mask-editor__note { margin: 16px 0; max-width: 78ch; }
+.mask-editor button {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 10px 15px;
+  border: 1px solid #bdbfb2;
+  border-radius: 5px;
+  background: #f8f7f0;
+  color: #303b29;
+  font: 600 12px Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.mask-editor button[aria-pressed='true'] { background: #dfe5d5; border-color: #657758; }
+.mask-editor button.mask-editor__apply { background: #303e2c; color: #f5f0df; border-color: #303e2c; }
+.mask-editor button:disabled { opacity: .45; cursor: not-allowed; }
+.mask-editor button:focus-visible, .mask-editor input:focus-visible { outline: 2px solid #c7552d; outline-offset: 3px; }
+.mask-editor button:not(:disabled):active { background: #d1dac5; transform: translateY(1px); }
+.mask-editor button.mask-editor__apply:not(:disabled):active { background: #465b3e; }
+.mask-editor__tools { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.mask-editor__radius { display: grid; grid-template-columns: 1fr auto; column-gap: 16px; flex: 1 1 210px; margin: 0 8px; font-size: 12px; }
+.mask-editor__radius output { font: 11px 'SFMono-Regular', Consolas, monospace; color: #59644f; }
+.mask-editor__radius input { grid-column: 1 / -1; width: 100%; min-height: 44px; margin: 0; accent-color: #466d46; touch-action: manipulation; }
+.mask-editor__guide { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 4px; font-size: 12px; cursor: pointer; touch-action: manipulation; }
+.mask-editor__guide input { width: 20px; height: 20px; margin: 0; accent-color: #466d46; }
+.mask-editor__stage { display: flex; justify-content: center; align-items: center; padding: 12px; min-width: 0; background: #e4e5dc; border: 1px solid #d4d7c9; border-radius: 4px; }
+.mask-editor__stage canvas {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: min(50dvh, 580px);
+  background-color: #d4d7ca;
+  background-image: conic-gradient(#f4f2e8 25%, transparent 0 50%, #f4f2e8 0 75%, transparent 0);
+  background-size: 20px 20px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  cursor: crosshair;
+}
+.mask-editor__hint { margin: 10px 0 16px; }
+.mask-editor__error { padding: 12px; color: #7b3924; border: 1px solid #d8a688; border-radius: 4px; background: #f0e2d6; font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
+.mask-editor__footer { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding-top: 16px; border-top: 1px solid #d9d9ce; }
+.mask-editor__status { flex: 1; font-size: 12px; color: #59644f; }
+@media (hover: hover) and (pointer: fine) {
+  .mask-editor button:not(:disabled):hover { background: #e1e5d5; }
+  .mask-editor button.mask-editor__apply:not(:disabled):hover { background: #465b3e; }
+}
+@media (max-width: 600px) {
+  .mask-editor { width: calc(100vw - 16px); max-height: calc(100dvh - 16px); padding: 16px; padding-bottom: max(16px, env(safe-area-inset-bottom)); }
+  .mask-editor h2 { font-size: 23px; }
+  .mask-editor__radius { order: 1; flex-basis: 100%; margin: 0; }
+  .mask-editor__guide { margin-left: auto; }
+  .mask-editor__stage { padding: 6px; }
+  .mask-editor__stage canvas { max-height: 42dvh; }
+  .mask-editor__footer { gap: 6px; }
+  .mask-editor__footer button { padding-inline: 11px; }
+  .mask-editor__status:empty { display: none; }
+  .mask-editor__apply { margin-left: auto; }
+  .mask-editor input { font-size: 16px; }
+}
